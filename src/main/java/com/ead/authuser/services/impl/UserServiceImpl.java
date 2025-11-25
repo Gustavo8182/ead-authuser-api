@@ -17,7 +17,7 @@ import java.util.UUID;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    UserRepository userRepository;
 
     @Override
     public List<UserModel> findAll() {
@@ -51,6 +51,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Page<UserModel> findAll(Specification<UserModel> spec, Pageable pageable) {
-        return userRepository.findAll(spec,pageable);
+        return userRepository.findAll(spec, pageable);
     }
 }

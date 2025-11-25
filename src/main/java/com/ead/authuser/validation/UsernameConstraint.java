@@ -4,11 +4,11 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.*;
 
-//esta é a interface de anotação customizada para validação de username
 @Documented
 @Constraint(validatedBy = UsernameConstraintImpl.class)
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
+//Esta clase define una anotación personalizada de validación para nombres de usuario.
 public @interface UsernameConstraint {
     String message() default "Invalid username";
     Class<?>[] groups() default {};

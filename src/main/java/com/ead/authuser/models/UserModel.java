@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
-//RepresentationModel é uma classe do Spring HATEOAS que facilita a criação de modelos de representação RESTful enriquecidos com links HATEOAS.
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
@@ -15,12 +14,10 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
-//Este atributo torna invisivel os campos que estiverem null
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 @Table(name = "TB_USERS")
 public class UserModel extends RepresentationModel<UserModel> implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -31,7 +28,7 @@ public class UserModel extends RepresentationModel<UserModel> implements Seriali
     @Column(nullable = false, unique = true, length = 50)
     private String email;
     @Column(nullable = false, length = 255)
-    //Este atributo torna a senha inisivel em um caso consulta, assim mantendo maior segurança para usuario.
+    //O jsonIgnore evita que a senha seja exposta em respostas de API
     @JsonIgnore
     private String password;
     @Column(nullable = false, length = 150)
@@ -49,12 +46,11 @@ public class UserModel extends RepresentationModel<UserModel> implements Seriali
     @Column
     private String imageUrl;
     @Column(nullable = false)
-    //este atributo formata a data.
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
+    //Estamos usando o formato ISO 8601 para datas no padrão UTC
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
     private LocalDateTime creationDate;
     @Column(nullable = false)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
     private LocalDateTime lastUpdateDate;
-
 
 }
