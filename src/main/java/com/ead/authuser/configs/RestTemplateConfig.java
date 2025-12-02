@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
+//esta classe configura o RestTemplate para ser usado na aplicação de autenticação de usuários.
 public class RestTemplateConfig {
 
     @Bean

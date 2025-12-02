@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDto {
-    // esta interface serve para agrupar as validações de acordo com o tipo de requisição
+
     public interface UserView {
         public static interface RegistrationPost {}
         public static interface UserPut {}

@@ -11,7 +11,6 @@ import java.util.List;
 
 
 @Configuration
-//Esta clase configura los resolutores de argumentos para manejar especificaciones JPA y paginación en las solicitudes web.
 public class ResolverConfig extends WebMvcConfigurationSupport {
 
     @Override

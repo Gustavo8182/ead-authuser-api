@@ -8,7 +8,6 @@ import java.lang.annotation.*;
 @Constraint(validatedBy = UsernameConstraintImpl.class)
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-//Esta clase define una anotación personalizada de validación para nombres de usuario.
 public @interface UsernameConstraint {
     String message() default "Invalid username";
     Class<?>[] groups() default {};

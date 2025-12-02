@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-//Esta notaçao @Log4j2, podemos usar o log para registrar informaçoes no console e em arquivos de log, sem precisar instanciar.
+
 @Log4j2
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -45,7 +45,7 @@ public class AuthenticationController {
         userModel.setCreationDate(LocalDateTime.now(ZoneId.of("UTC")));
         userModel.setLastUpdateDate(LocalDateTime.now(ZoneId.of("UTC")));
         userService.save(userModel);
-        log.debug("POST registerUser userModel saved {} ", userModel.toString());
+        log.debug("POST registerUser userId saved {} ", userModel.getUserId());
         log.info("User saved successfully userId {} ", userModel.getUserId());
         return  ResponseEntity.status(HttpStatus.CREATED).body(userModel);
     }
